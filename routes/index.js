@@ -13,6 +13,7 @@ module.exports = function(){
     //Mostrar un cliente en especifico (ID)
     router.get('/clientes/:idCliente', clienteController.mostrarCliente );
 
+    //Se actualiza la informacion de un Cliente
     router.put('/clientes/:idCliente', clienteController.actualizarCliente);
 
     return router;
