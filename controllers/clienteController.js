@@ -35,7 +35,6 @@ exports.mostrarCliente = async (req, res, next) => {
     }
 
     res.json(cliente);
-    
 }
 
 //Actualizar por ID
@@ -49,4 +48,16 @@ exports.actualizarCliente = async (req, res, next) => {
         console.log(error);
         next();
     }
+}
+
+//Eliminar un cliente por su ID
+exports.eliminarCliente = async (req, res, next) => {
+    const cliente = await Clientes.findByIdAndDelete(req.params.idCliente);
+
+    if(!cliente){
+        res.json({mensaje: 'Ese cliente no existe'});
+        next()
+    }
+
+    res.json(cliente);
 }
